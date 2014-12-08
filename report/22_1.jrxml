@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="22_1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="82a01c34-cbc6-4a29-9e4c-d8c1fbcc0279">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     corporation.`code` AS corporation_code,
+     corporation.`corporation_name` AS corporation_corporation_name,
+     corporation.`phone` AS corporation_phone,
+     corporation.`email` AS corporation_email,
+     building.`name` AS building_name,
+     building.`zipcode` AS building_zipcode,
+     building.`phone` AS building_phone,
+     building.`fax` AS building_fax,
+     building.`email` AS building_email,
+     province.`PROVINCE_CODE` AS province_PROVINCE_CODE,
+     province.`PROVINCE_NAME` AS province_PROVINCE_NAME
+FROM
+     `corporation` corporation INNER JOIN `building` building ON corporation.`id` = building.`corporate_id`
+     INNER JOIN `province` province ON building.`province_id` = province.`PROVINCE_ID`]]>
+	</queryString>
+	<field name="corporation_code" class="java.lang.String"/>
+	<field name="corporation_corporation_name" class="java.lang.String"/>
+	<field name="corporation_phone" class="java.lang.String"/>
+	<field name="corporation_email" class="java.lang.String"/>
+	<field name="building_name" class="java.lang.String"/>
+	<field name="building_zipcode" class="java.lang.Integer"/>
+	<field name="building_phone" class="java.lang.String"/>
+	<field name="building_fax" class="java.lang.String"/>
+	<field name="building_email" class="java.lang.String"/>
+	<field name="province_PROVINCE_CODE" class="java.lang.String"/>
+	<field name="province_PROVINCE_NAME" class="java.lang.String"/>
+	<group name="province">
+		<groupExpression><![CDATA[$F{corporation_code}]]></groupExpression>
+		<groupHeader>
+			<band height="26"/>
+		</groupHeader>
+	</group>
+	<group name="corporate">
+		<groupExpression><![CDATA[$F{corporation_code}]]></groupExpression>
+		<groupHeader>
+			<band height="24"/>
+		</groupHeader>
+		<groupFooter>
+			<band height="7"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="45" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="22"/>
+	</detail>
+	<columnFooter>
+		<band height="5" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="24" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="25" splitType="Stretch"/>
+	</summary>
+</jasperReport>

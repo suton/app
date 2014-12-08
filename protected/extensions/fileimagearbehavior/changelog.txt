@@ -1,0 +1,22 @@
+version 0.7
+ - FileARBehavior and ImageARBehavior can be placed where you want (they just need to be in the same directory)
+ - modification of Image extension
+   - 3 new functions (emboss, negate, grayscale)
+   - The ImageMagick Driver is optimized greatly by appending arguments for convert instead
+     of reading / saving file for each function. The temp image copy in this driver is now useless
+     and was removed too.
+ - modification of FileARBehavior
+   - can have formats, wich can be be processed (similar to old ImageARBehavior) but more generic: you can define your own processor class.
+     - property moved from ImageARBehavior $formats
+     -property added prcessor (set a yii import path to your own processor)
+   - processing functions with no parameters (like grayscale and negate) can be set to true instead of array().
+   - property added $forceExt to force saving files with a given extension.
+   - property added $attributeSeparator to specify the separator used when mulitples primary keys. Default to '_'
+   - getFilePath() now takes 1 optionnal argument, $format (default to 'normal')
+   - getFilesPath() added, which returns an array of existing format => filePath
+ - modification of ImageARBehavior
+   - property added $useImageMagick to use ImageMagick instead of the default GD2 library.
+   - the order of the processing functions is now important ! For example, use
+     'process' => array('resize' => array(60, 90), 'grayscale' => true) instead of
+     'process' => array('grayscale' => true, 'resize' => array(60, 90)) for better performance.
+   - 

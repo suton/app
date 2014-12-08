@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="r_building" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2cacecf0-1528-43c5-b2e9-d542e21685a2">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+	year(now()) as year,
+     corporation.`code` AS corporation_code,
+     corporation.`corporation_name` AS corporation_corporation_name,
+     usertable.`fname` AS usertable_fname,
+     usertable.`lname` AS usertable_lname,
+     usertable.`tel` AS usertable_tel,
+     usertable.`email` AS usertable_email,
+     usertable.`birthdate` AS usertable_birthdate,
+     building.`name` AS building_name,
+     building.`phone` AS building_phone,
+     building.`status` AS building_status,
+     building.`fax` AS building_fax,
+     usertable.`username` AS usertable_username
+FROM
+     `usertable` usertable INNER JOIN `corporation` corporation ON usertable.`id` = corporation.`owner_id`
+     INNER JOIN `building` building ON corporation.`id` = building.`corporate_id`]]>
+	</queryString>
+	<field name="year" class="java.lang.Long"/>
+	<field name="corporation_code" class="java.lang.String"/>
+	<field name="corporation_corporation_name" class="java.lang.String"/>
+	<field name="usertable_fname" class="java.lang.String"/>
+	<field name="usertable_lname" class="java.lang.String"/>
+	<field name="usertable_tel" class="java.lang.String"/>
+	<field name="usertable_email" class="java.lang.String"/>
+	<field name="usertable_birthdate" class="java.sql.Date"/>
+	<field name="building_name" class="java.lang.String"/>
+	<field name="building_phone" class="java.lang.String"/>
+	<field name="building_status" class="java.lang.Integer"/>
+	<field name="building_fax" class="java.lang.String"/>
+	<field name="usertable_username" class="java.lang.String"/>
+	<group name="corporate">
+		<groupExpression><![CDATA[$F{corporation_code}]]></groupExpression>
+		<groupHeader>
+			<band height="119" splitType="Prevent">
+				<textField>
+					<reportElement mode="Opaque" x="119" y="12" width="90" height="20" backcolor="#FFFF00" uuid="14c421ce-c735-4590-a631-0fefa647341c"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="11" isBold="false" pdfFontName="" pdfEncoding="Identity-H" isPdfEmbedded="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{corporation_code}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="296" y="12" width="252" height="20" backcolor="#FFFF00" uuid="cc9e9356-27d9-49f8-a577-7357c613ec0e"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="11" isBold="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{corporation_corporation_name}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="43" y="35" width="135" height="20" backcolor="#FFFF00" uuid="eb18f062-49ed-45d1-a15e-3703f1c2c079"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="11" isBold="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{usertable_fname}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="236" y="35" width="125" height="20" backcolor="#FFFF00" uuid="d0ca7e4d-e5c8-41fa-ba23-21d23751d1b6"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="11" isBold="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{usertable_lname}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="443" y="58" width="105" height="20" backcolor="#FFFF00" uuid="65084135-c142-45d8-ace1-87a8c1f8195b"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="11" isBold="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{usertable_tel}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="43" y="58" width="135" height="20" backcolor="#FFFF00" uuid="ae14220b-9bff-41f8-b6d7-0c022c92096c"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="11" isBold="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{usertable_email}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Opaque" x="237" y="58" width="125" height="20" backcolor="#FFFF00" uuid="66305996-d7e8-44bf-8690-2ed745f5b127"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="11" isBold="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{usertable_birthdate}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="219" y="12" width="74" height="20" backcolor="#FFFF00" uuid="94fa4a77-9bcc-49bc-9785-b134a8ec643f"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[ชื่อโครงการ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="1" y="58" width="39" height="20" backcolor="#FFFF00" uuid="f12acf9e-cd73-4141-bab5-72632bd840e0"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[อีเมลล์]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="1" y="35" width="39" height="20" backcolor="#FFFF00" uuid="8fff8d57-52d3-437c-87df-ddf19c0210c3"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[ชื่อ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="183" y="35" width="50" height="20" backcolor="#FFFF00" uuid="2fc96033-cf76-418b-9647-0ef8b40da63f"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[สกุล]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="183" y="58" width="50" height="20" backcolor="#FFFF00" uuid="963fb751-8c65-4601-b4a8-1582f8d3f37b"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[วันเกิด]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="364" y="58" width="75" height="20" backcolor="#FFFF00" uuid="002bf37c-5d94-48b3-a4f1-37d9ac70908a"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="11" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[เบอร์โทรศัพท์]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="444" y="35" width="104" height="20" backcolor="#FFFF00" uuid="c5c9074c-7824-4075-8932-294b36393b53"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="TH SarabunPSK" size="11" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["  "+$F{usertable_username}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement mode="Opaque" x="364" y="35" width="75" height="20" backcolor="#FFFF00" uuid="1ca9bcc7-a7ae-4ed2-b278-48ecc0498eae"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[ชื่อผู้ใช้ระบบ]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="1" y="12" width="115" height="20" backcolor="#FFFF00" uuid="45f4a618-a417-4f78-afa3-449840359bd9"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[รหัสนิติบุคคล]]></text>
+				</staticText>
+				<line>
+					<reportElement x="2" y="7" width="546" height="1" uuid="cab1984b-c3e4-4fba-9828-d2a606dc7efa"/>
+				</line>
+				<line>
+					<reportElement x="1" y="80" width="546" height="1" uuid="c6232dfa-da43-495e-b3e3-d9df1c6ffd94"/>
+				</line>
+				<line>
+					<reportElement x="1" y="105" width="546" height="1" uuid="8555bfa8-3dee-493d-bc90-aa05c776fb03"/>
+				</line>
+				<staticText>
+					<reportElement mode="Opaque" x="1" y="83" width="224" height="20" backcolor="#FFC800" uuid="89f3d4d7-a05c-4540-b412-8ef74bd3a812"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[ชื่ออาคาร]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="228" y="83" width="120" height="20" backcolor="#FFC800" uuid="27101b16-40dc-4618-a604-6cbfba88f8b1"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[เบอร์โทรศัพท์]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="350" y="83" width="105" height="20" backcolor="#FFC800" uuid="284d8a19-a96d-4825-a4e6-500bfbc08927"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[แฟกซ์]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="457" y="83" width="91" height="20" backcolor="#FFC800" uuid="3c781e2b-1a13-43fc-8b6a-4e3f3558988f"/>
+					<textElement textAlignment="Center">
+						<font fontName="TH SarabunPSK" size="14" isBold="false" isUnderline="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<text><![CDATA[สถานะ]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="70" isPrintWhenDetailOverflows="true" forecolor="#FFFFFF" backcolor="#006699" uuid="786958fa-df0a-43de-b549-545e1bc9294d"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="46" forecolor="#FFFFFF" uuid="44c938e3-428c-425f-94d0-8c90d395f879"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[รายงานอาคารหอพักแยกตามนิติบุคคล]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="178" y="50" width="369" height="20" forecolor="#FFFFFF" uuid="6be38287-a51a-4636-9528-570ff67e9824"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Copyright © 2013 - "+$F{year}+" The Room, Inc. All Rights Reserved."]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="3" width="225" height="20" uuid="2e0c6072-d2e3-4cdf-af16-b4235e5ec02a"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="14" isItalic="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["  "+$F{building_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="228" y="3" width="120" height="20" uuid="3e554217-af36-477b-a73d-e6effb901a92"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="14" isItalic="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{building_phone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="3" width="100" height="20" uuid="7a10f89f-1aea-4306-b4e2-878a90fc034b"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="14" isItalic="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{building_status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="350" y="3" width="105" height="20" uuid="c4f9fd13-8d7d-4566-8391-5c2881a583ad"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="14" isItalic="false" pdfFontName="TH SarabunPSK" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{building_fax}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="17" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="516" y="3" width="39" height="13" backcolor="#E6E6E6" uuid="aa30167d-8df7-43eb-993d-ec8760d1f1ef"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="1" y="3" width="515" height="13" backcolor="#E6E6E6" uuid="e803113e-a559-4c18-8471-979121767a02"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="2" y="3" width="252" height="13" uuid="dd8c69ca-2b45-4683-a549-72159ef81faf"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="buildingOfCorporate" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b26c3433-65d4-4204-9fb0-049212b2fb71">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+corporation.id,
+corporation.code,
+corporation.corporation_name,
+building.name,
+building.title,
+corporation.contact,
+corporation.phone
+FROM
+corporation
+INNER JOIN building
+WHERE corporation.id=building.corporate_id
+ORDER BY corporation.id]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="code" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="corporation_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="title" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="contact" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="phone" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="id">
+		<groupExpression><![CDATA[$F{id}]]></groupExpression>
+		<groupHeader>
+			<band height="28">
+				<line>
+					<reportElement x="-20" y="25" width="595" height="1" forecolor="#666666" uuid="b65e0196-14b8-49ee-82f2-5f8c3bddb2cf"/>
+				</line>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="4" width="95" height="20" uuid="aa1463fe-9746-41b8-92a4-657fdcc37234"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{code}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="100" y="5" width="220" height="20" uuid="19c6eebe-8d15-4ced-9b90-ac171fb38d72"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{corporation_name}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="324" y="4" width="111" height="20" uuid="e8a66b4d-c224-445f-81f0-8c4bb11fbfc7"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{contact}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="439" y="4" width="111" height="20" uuid="980aa5f5-6e60-4b9e-a1b6-1a70ea8cd33d"/>
+					<textElement>
+						<font fontName="TH SarabunPSK" size="14" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{phone}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="-20" y="2" width="595" height="1" forecolor="#666666" uuid="30181ff3-f215-4c60-b468-6b6dc6a13a51"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<rectangle>
+				<reportElement x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="868ee298-a869-417c-b4bd-43eb5165282b"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="-20" y="-8" width="595" height="53" forecolor="#FFFFFF" uuid="b03e11b0-b8f9-4301-bd6f-f79e9aa08ffa"/>
+				<textElement textAlignment="Center">
+					<font fontName="TH SarabunPSK" size="35" isBold="true"/>
+				</textElement>
+				<text><![CDATA[รายงานอาคารหอพักแยกตามนิติบุคคล]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="411" y="51" width="164" height="20" forecolor="#FFFFFF" uuid="181f5703-0087-4904-a64f-5010c035c9ba"/>
+				<textElement textAlignment="Right">
+					<font fontName="TH SarabunPSK" size="12" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Copyright © 2557 The Room"]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="23">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="2" width="95" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="62db69a6-fab1-4282-abd7-ff4526ff2937"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="16" isBold="true" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[รหัสโครงการ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="2" width="220" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="b85b339d-5f2f-4ff5-99bd-a359a7bb1401"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="16" isBold="true" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ชื่อโครงการ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="324" y="2" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="2443abc0-0352-4817-861c-80a2108542c1"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="16" isBold="true" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[ผู้ติดต่อ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="439" y="2" width="111" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="36307653-5fdb-4d4d-a9e0-c012095ccbda"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="16" isBold="true" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<text><![CDATA[เบอร์โทรศัพท์]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="21">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="200" height="20" uuid="192148d8-7d15-49f9-8137-031063ae0525"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="14" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="206" y="0" width="350" height="20" uuid="f3ae29cc-64f3-4b6a-b40b-5ee01528def5"/>
+				<textElement>
+					<font fontName="TH SarabunPSK" size="14" pdfFontName="thsarabunpsk" pdfEncoding="Identity-H" isPdfEmbedded="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{title}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="9749b964-3f09-43ee-b954-3ab765edeef5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="ca1a2ec0-f367-4215-b9e0-8cabf65018d3"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="db1fa5d3-2b4f-4ab9-a533-155f62ea5717"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

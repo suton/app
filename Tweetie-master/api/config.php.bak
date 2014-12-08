@@ -1,0 +1,12 @@
+<?php
+    /**
+     * Your Twitter App Info
+     */
+    
+    // Consumer Key
+    define('CONSUMER_KEY', 'GqNAGci8KPO7eLLOIOttrc4tp');
+    define('CONSUMER_SECRET', 'gIVCmZPtAWZUW9qpFUFyRR3LrcdOeGp6AG84Rx2qXErHJKCccR');
+
+    // User Access Token
+    define('ACCESS_TOKEN', 'ACCESS_TOKEN_HERE');
+    define('ACCESS_SECRET', 'ACCESS_SECRET_HERE');

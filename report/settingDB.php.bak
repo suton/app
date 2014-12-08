@@ -1,0 +1,8 @@
+<?php
+$server="www.theroom.local";
+$db="mkapmt";
+$user="root";
+$pass="root";
+$version="0.9d";
+$pgport=3306;
+$pchartfolder="./class/pchart2";
